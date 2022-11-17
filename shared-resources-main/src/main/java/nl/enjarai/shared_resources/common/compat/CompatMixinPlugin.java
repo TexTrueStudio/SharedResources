@@ -1,6 +1,7 @@
 package nl.enjarai.shared_resources.common.compat;
 
-import net.fabricmc.loader.api.FabricLoader;
+//import net.fabricmc.loader.api.FabricLoader;
+import net.minecraftforge.fml.ModList;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -27,7 +28,7 @@ public interface CompatMixinPlugin extends IMixinConfigPlugin {
     @Override
     default boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         return getRequiredMods().stream()
-                .allMatch((modId) -> FabricLoader.getInstance().isModLoaded(modId));
+                .allMatch((modId) -> ModList.get().isLoaded(modId));
     }
 
     @Override

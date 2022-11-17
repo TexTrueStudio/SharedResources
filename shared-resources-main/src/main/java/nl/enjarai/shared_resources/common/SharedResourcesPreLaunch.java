@@ -1,9 +1,9 @@
 package nl.enjarai.shared_resources.common;
 
 import com.llamalad7.mixinextras.MixinExtrasBootstrap;
-import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.api.entrypoint.PreLaunchEntrypoint;
-import net.fabricmc.loader.impl.FabricLoaderImpl;
+//import net.fabricmc.loader.api.FabricLoader;
+//import net.fabricmc.loader.api.entrypoint.PreLaunchEntrypoint;
+//import net.fabricmc.loader.impl.FabricLoaderImpl;
 import net.minecraft.util.Identifier;
 import nl.enjarai.shared_resources.api.GameResource;
 import nl.enjarai.shared_resources.api.GameResourceHelper;

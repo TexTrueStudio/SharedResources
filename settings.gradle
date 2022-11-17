@@ -13,6 +13,7 @@ pluginManagement {
 
 rootProject.name = "shared-resources"
 
+include("shared-resources-main")
 include("shared-resources-mc16")
 include("shared-resources-mc18")
 include("shared-resources-mc19")

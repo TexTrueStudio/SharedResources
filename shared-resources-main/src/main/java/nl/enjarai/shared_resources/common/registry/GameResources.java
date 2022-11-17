@@ -1,6 +1,7 @@
 package nl.enjarai.shared_resources.common.registry;
 
-import net.fabricmc.loader.api.FabricLoader;
+//import net.fabricmc.loader.api.FabricLoader;
+import net.minecraftforge.fml.ModList;
 import nl.enjarai.shared_resources.api.*;
 import nl.enjarai.shared_resources.common.SharedResources;
 
@@ -72,7 +73,7 @@ public class GameResources implements SharedResourcesEntrypoint {
     }
 
     private static boolean checkLoaded(String modid) {
-        boolean loaded = FabricLoader.getInstance().isModLoaded(modid);
+        boolean loaded = ModList.get().isLoaded(modid);
         if (loaded) {
             SharedResources.LOGGER.info("Mod {} is loaded, enabling compat.", modid);
         }

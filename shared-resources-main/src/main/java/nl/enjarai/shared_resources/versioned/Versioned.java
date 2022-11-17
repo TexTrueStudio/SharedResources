@@ -1,6 +1,6 @@
 package nl.enjarai.shared_resources.versioned;
 
-import net.fabricmc.loader.api.FabricLoader;
+//import net.fabricmc.loader.api.FabricLoader;
 
 public class Versioned {
 

@@ -2,7 +2,7 @@ package nl.enjarai.shared_resources.common.gui;
 
 import com.google.common.collect.Lists;
 import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
-import net.fabricmc.loader.api.FabricLoader;
+//import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.Selectable;
@@ -10,6 +10,7 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
+import net.minecraftforge.fml.loading.FMLPaths;
 import org.lwjgl.util.tinyfd.TinyFileDialogs;
 
 import java.nio.file.Path;
@@ -41,7 +42,7 @@ public class DirectoryConfigEntry extends AbstractConfigListEntry<Path> {
         this.saveConsumer = saveConsumer;
 
         pathButton = new LongButtonWidget(0, 0, 150, 20, TEXT.translatable("config.shared_resources.directoryEntry"), button -> {
-            Path absolutePath = path.get().isAbsolute() ? path.get() : FabricLoader.getInstance().getGameDir().resolve(path.get());
+            Path absolutePath = path.get().isAbsolute() ? path.get() : FMLPaths.GAMEDIR.get().resolve(path.get());
             String val = TinyFileDialogs.tinyfd_selectFolderDialog("Select directory", absolutePath.toString());
 
             if (val != null) {

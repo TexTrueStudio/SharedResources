@@ -2,7 +2,7 @@ package nl.enjarai.shared_resources.common.util;
 
 import net.minecraft.resource.FileResourcePackProvider;
 import net.minecraft.resource.ResourcePackProfile;
-import net.minecraft.resource.ResourcePackSource;
+//import net.minecraft.resource.ResourcePackSource;
 import nl.enjarai.shared_resources.common.mixin.resourcepacks.FileResourcePackProviderAccessor;
 
 import java.nio.file.Path;

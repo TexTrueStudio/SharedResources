@@ -6,10 +6,11 @@ import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import me.shedaniel.clothconfig2.gui.entries.BooleanListEntry;
-import net.fabricmc.loader.api.FabricLoader;
+//import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraftforge.fml.loading.FMLPaths;
 import nl.enjarai.shared_resources.api.GameResource;
 import nl.enjarai.shared_resources.api.GameResourceHelper;
 import nl.enjarai.shared_resources.api.GameResourceRegistry;
@@ -40,9 +41,7 @@ import static nl.enjarai.shared_resources.versioned.Versioned.TEXT;
 public class SharedResourcesConfig implements GameResourceConfig {
     // Make sure we use the default config location instead of our modified one.
     public static final File CONFIG_FILE =
-            FabricLoader.getInstance().getGameDir()
-                    .resolve(GameResources.CONFIG.getDefaultPath()
-                            .resolve(SharedResources.MODID + ".json")).toFile();
+            FMLPaths.GAMEDIR.get().resolve(GameResources.CONFIG.getDefaultPath().resolve(SharedResources.MODID + ".json")).toFile();
     private static final Gson GSON = new GsonBuilder()
             .registerTypeAdapter(Identifier.class, new IdentifierAdapter())
             .registerTypeAdapter(GameDirectoryProvider.class, new GameDirectoryProviderAdapter())

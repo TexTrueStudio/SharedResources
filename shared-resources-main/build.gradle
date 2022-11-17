@@ -1,0 +1,49 @@
+archives_base_name = "shared-resources-1.19"
+//var fabric_version = "0.60.0+1.19.2"
+
+dependencies {
+    minecraft "com.mojang:minecraft:1.19.2"
+    mappings "net.fabricmc:yarn:1.19.2+build.8:v2"
+
+    forge "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    //modImplementation "com.terraformersmc:modmenu:4.0.6"
+    modImplementation("me.shedaniel.cloth:cloth-config-forge:${project.common_cloth_config_version}")
+
+    api(project(path: ":shared-resources-api", configuration: "namedElements")) {
+        exclude group: "net.minecraftforge", module: "forge"
+    }
+
+    api(include("com.github.LlamaLad7:MixinExtras:${project.mixin_extras_version}"))
+    annotationProcessor("com.github.LlamaLad7:MixinExtras:${project.mixin_extras_version}")
+
+    subprojects.forEach((project) -> {
+        include(project) {
+            transitive = false
+        }
+    })
+}
+
+// stuff that applies to all sub projects
+subprojects {
+    // skip our API module
+    if (it.name == "shared-resources-api") return
+
+    dependencies {
+        // include the root project because that's where our common code is
+        implementation(project(path: ":", configuration: "namedElements")) {
+            // having 2 floaders from the sub project and root project causes issues so we get rid of one.
+            exclude group: "net.minecraftforge", module: "forge"
+        }
+    }
+}
+
+loom {
+
+    forge {
+        mixinConfigs = [
+                "shared-resources.mixins.json","shared-resources.compat.iris.mixins.json","shared-resources.compat.litematica.mixins.json"
+        ]
+    }
+
+    accessWidenerPath = file("src/main/resources/shared-resources.accesswidener")
+}

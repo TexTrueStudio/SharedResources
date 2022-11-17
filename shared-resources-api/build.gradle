@@ -3,18 +3,12 @@ archives_base_name = "shared-resources-api"
 dependencies {
     minecraft "com.mojang:minecraft:${rootProject.common_minecraft_version}"
     mappings "net.fabricmc:yarn:${rootProject.common_yarn_mappings}:v2"
+
+    forge "net.minecraftforge:forge:${project.common_minecraft_version}-${forge_version}"
 }
 
 publishing {
     repositories {
-        maven {
-            name = "enjaraiMaven"
-            url = "https://maven.enjarai.nl/releases"
-            credentials(PasswordCredentials)
-            authentication {
-                basic(BasicAuthentication)
-            }
-        }
     }
 
     publications {
