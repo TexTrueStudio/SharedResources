@@ -20,6 +20,7 @@ import java.util.Iterator;
 import static nl.enjarai.shared_resources.common.config.SharedResourcesConfig.CONFIG;
 
 public class SharedResourcesPreLaunch implements PreLaunchEntrypoint {
+
     @Override
     public void onPreLaunch() {
         // Boot up Mixin Extras
