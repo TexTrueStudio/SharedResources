@@ -1,13 +1,14 @@
 package nl.enjarai.shared_resources.api;
 
-import net.fabricmc.loader.api.FabricLoader;
+//import net.fabricmc.loader.api.FabricLoader;
+import net.minecraftforge.fml.loading.FMLPaths;
 import nl.enjarai.shared_resources.util.GameResourceConfig;
 import org.jetbrains.annotations.Nullable;
 
 import java.nio.file.Path;
 
 public class GameResourceHelper {
-    private static final Path GAME_ROOT = FabricLoader.getInstance().getGameDir();
+    private static final Path GAME_ROOT = FMLPaths.GAMEDIR.get();
     private static GameResourceConfig config;
 
     /**
